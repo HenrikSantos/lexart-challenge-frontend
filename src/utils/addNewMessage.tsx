@@ -1,6 +1,6 @@
 import { IMessage } from "../components/ChatMessage";
 
-interface IAddNewMessage {
+export interface IAddNewMessage {
   message: string,
   side: "left" | "right";
   setMessages: React.Dispatch<React.SetStateAction<IMessage[]>>,
@@ -8,7 +8,7 @@ interface IAddNewMessage {
 
 export default function addNewMessage({ message, side, setMessages }: IAddNewMessage) {
   const newMessage: IMessage = {
-    message: <span>{message}</span>,
+    message: (<>{message}</>),
     side,
   };
   setMessages((prevMessages) => [...prevMessages, newMessage]);

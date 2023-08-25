@@ -1,5 +1,4 @@
 import { IMessage } from "../components/ChatMessage";
-import addNewMessage from "./addNewMessage";
 
 interface IHandleStartConversation {
   message: string,
@@ -9,16 +8,20 @@ interface IHandleStartConversation {
 export default function handleStartConversation({ message, setMessages }: IHandleStartConversation) {
   const keywords = ["hello", "goodbye", "good", "i want"];
   const formatedMessage = message.toLowerCase();
-  let greating = "";
 
-  if (keywords.some((keyword) => {
-    if (formatedMessage.includes(keyword)) {
-      greating = keyword;
-      return true;
-    }
-  })) {
-    const newMessage = `${formatedMessage === "i want" ? "Welcome" : greating}! Login with your username and password, ex: myname mypassword`;
-    addNewMessage({ message: newMessage, side: "left", setMessages });
+  if (keywords.some((keyword) => formatedMessage.includes(keyword))) {
+    const newMessage: IMessage = {
+      message: <span id="requestLogin">Welcome! Login with your username and password, ex: myname mypassword</span>,
+      side: "left",
+    };
+    setMessages((prevMessages) => [...prevMessages, newMessage]);
     return true;
-  } else return false;
+  } else {
+    const newMessage: IMessage = {
+      message: <span id="failLogin">{"Sorry, I didn't understand."}</span>,
+      side: "left",
+    };
+    setMessages((prevMessages) => [...prevMessages, newMessage]);
+    return false;
+  }
 }
