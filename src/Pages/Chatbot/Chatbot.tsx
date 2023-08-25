@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { IMessage } from "../../components/ChatRender";
 import ChatInput from "../../components/ChatInput";
 import ChatRender from "../../components/ChatRender";
-import { IMessage } from "../../components/ChatMessage";
 import handleStartConversation from "../../utils/handleStartConversation";
 import addNewMessage from "../../utils/addNewMessage";
 import handleUserLogin from "../../utils/handleUserLogin";
+import LoanOptions from "../../components/LoanOptions";
 
 interface IUser {
   username: string;
@@ -17,7 +18,7 @@ export default function Chatbot() {
   const [user, setUser] = useState<IUser>({ username: "", password: "" });
 
   const handleSendMessage = (message: string) => {
-    addNewMessage({ message, setMessages, side: "right" });
+    addNewMessage({ message, side: "right", setMessages });
 
     if (!threadActivity) {
       setThreadActivity(handleStartConversation({ message, setMessages }));
@@ -27,6 +28,16 @@ export default function Chatbot() {
     if (!user.username || !user.password) {
       handleUserLogin({ message, setMessages, setUser });
       return;
+    }
+
+    if (message.toLowerCase().includes("loan")) {
+      const newMessage: IMessage = {
+        message: (
+          <LoanOptions setMessages={setMessages} />
+        ),
+        side: "left"
+      };
+      setMessages((prevMessages) => [...prevMessages, newMessage]);
     }
   };
 

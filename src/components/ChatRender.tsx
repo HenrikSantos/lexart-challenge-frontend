@@ -1,13 +1,16 @@
-import ChatMessage, { ChatMessageProps } from "./ChatMessage";
+export interface IMessage {
+  message: React.ReactNode;
+  side: "left" | "right";
+}
 
 export interface ChatRenderProps {
-  messages: ChatMessageProps[]
+  messages: IMessage[]
 }
 
 export default function ChatRender({ messages }: ChatRenderProps) {
   return (
-    <section className="flex flex-col">
-      {messages.map((messages, index) => <ChatMessage key={index} {...messages} />)}
+    <section>
+      {messages.map((message, index) => <span key={index}>{message.message}</span>)}
     </section>
   );
 }
