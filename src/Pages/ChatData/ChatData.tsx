@@ -62,7 +62,7 @@ export default function Chatbot() {
                 key={index}
                 onClick={() => generateData({ ...chat })}
               >
-                <span id={`${chat.userId}`} className="mr-3 rounded-lg border bg-gray-200 px-5 py-2 underline shadow-sm">
+                <span id={`user${chat.userId}`} className="mr-3 rounded-lg border bg-gray-200 px-5 py-2 underline shadow-sm">
                   {`Conversation ${chat.username} #${chat.userId} - ${chat.date}`}
                 </span>
               </button>
