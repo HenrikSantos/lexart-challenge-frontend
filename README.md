@@ -31,6 +31,18 @@ npm run preview
 After running the preview command, open your web browser and go to the following URL:
 [http://localhost:4173/](http://localhost:4173/)
 
+## How to Run Tests
+
+1. **Run the project in developer mode**:
+Open a terminal and run the following command:
+
+```bash
+npm run dev
+```
+
+2. **Run tests**:
+Open a new terminal and execute `"npm test"` or `"npm run test:open"`. The `"npm run test:open"` command will open a browser; you'll then need to select "e2e", choose a browser to run the tests in, and finally select the e2e test.
+
 ## About
 
 ### Project Features
@@ -66,13 +78,15 @@ The project employs the following technologies:
 ![Page Chatbot](./public/Chatbot.png)
 ![Page Chat data](./public/Chatdata.png)
 
-## Tests
+## Results
+
+### Tests
 
 ![result test e2e](./public/teste2e.png)
 
 https://github.com/HenrikSantos/lexart-challenge-frontend/assets/36730816/e24a3eee-0732-4012-a092-36c969f727b4
 
-## Lighthouse
+### Lighthouse
 
 ![lighthouse test](./public/lighthouse.png)
 
