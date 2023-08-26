@@ -5,9 +5,10 @@ import { IMessage } from "../components/ChatRender";
 interface ISaveData {
   messages: IMessage[],
   setMessages: React.Dispatch<React.SetStateAction<IMessage[]>>,
+  username: string
 }
 
-export default function saveData({ messages, setMessages }: ISaveData) {
+export default function saveData({ messages, setMessages, username }: ISaveData) {
   const chatsString = localStorage.getItem("chats") ?? "[]";
   const chats = JSON.parse(chatsString);
 
@@ -16,10 +17,14 @@ export default function saveData({ messages, setMessages }: ISaveData) {
 
   const messagesText = extractTextAndSide(messages);
 
-  const messageWithDate = [
+  const messageWithDate = {
+    username,
+    date: formatedDate,
+    data: [
     ...messagesText,
-    { message: formatedDate, side: "left" }
-  ];
+    ],
+    userId: chats.length + 1
+  };
 
   chats.push(messageWithDate);
 

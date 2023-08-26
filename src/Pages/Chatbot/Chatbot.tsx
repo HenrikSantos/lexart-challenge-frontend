@@ -47,7 +47,8 @@ export default function Chatbot() {
       const lastMessageText = extractTextFromReactNode(lastMessage.message);
 
       if (lastMessageText.includes("Understood") && lastMessage.side === "left") {
-        saveData({ messages, setMessages });
+        const username = user.username || "user";
+        saveData({ messages, setMessages, username });
         setUser({ username: "", password: "" });
         setThreadActivity(false);
         return;
