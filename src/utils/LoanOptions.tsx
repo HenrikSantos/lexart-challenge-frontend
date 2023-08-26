@@ -1,12 +1,11 @@
-import handleLoanMessage from "../utils/handleLoanMessage";
+import handleLoanMessage from "./handleLoanMessage";
 import { IMessage } from "../components/ChatRender";
 
-
-interface LoanOptionsProps {
+interface ILoanOptions {
   setMessages: React.Dispatch<React.SetStateAction<IMessage[]>>,
 }
 
-export default function LoanOptions({ setMessages }: LoanOptionsProps) {
+export default function LoanOptions({ setMessages }: ILoanOptions) {
   function submitLoanInformation(typeOfLoan: string) {
     const loanMessage = handleLoanMessage(typeOfLoan);
 
@@ -17,9 +16,9 @@ export default function LoanOptions({ setMessages }: LoanOptionsProps) {
     setMessages((prevMessages) => [...prevMessages, newMessage]);
   }
 
-  return (
-    <div className="mx-3 mb-2 whitespace-normal break-words rounded-lg bg-gray-200 px-3 py-2 leading-8" id="loanMessage">
-      Alright! Here are three options related to loans:
+  const newMessage: IMessage = {
+    message: <div className="mx-3 mb-2 whitespace-normal break-words rounded-lg bg-gray-200 px-3 py-2 leading-8" id="loanMessage">
+      <span>Alright! Here are three options related to loans:</span>
       <button
         id="loanApply"
         className="block"
@@ -48,6 +47,8 @@ export default function LoanOptions({ setMessages }: LoanOptionsProps) {
       >
         3. <span className="text-blue-600 underline">Help</span>
       </button>
-    </div>
-  );
+    </div>,
+    side: "left"
+  };
+  setMessages((prevMessages) => [...prevMessages, newMessage]);
 }

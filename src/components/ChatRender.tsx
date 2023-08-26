@@ -9,7 +9,7 @@ export interface ChatRenderProps {
 
 export default function ChatRender({ messages }: ChatRenderProps) {
   return (
-    <section>
+    <section className="mb-28">
       {messages.map((message, index) => <span key={index}>{message.message}</span>)}
     </section>
   );

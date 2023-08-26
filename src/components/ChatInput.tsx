@@ -25,15 +25,16 @@ export default function ChatInput({ onSendMessage }: ChatInputProps) {
   };
 
   return (
-    <section>
+    <section className="fixed bottom-0 flex w-full gap-3 border-t bg-white p-3">
       <input
+        className="w-full rounded border px-3"
         type="text"
         value={inputValue}
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}
         placeholder="Hello..."
       />
-      <button onClick={handleSendMessage}>Send</button>
+      <button className="rounded border p-2 px-4" onClick={handleSendMessage}>Send</button>
     </section>
   );
 }

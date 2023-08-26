@@ -1,13 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IMessage } from "../../components/ChatRender";
+
 import ChatInput from "../../components/ChatInput";
 import ChatRender from "../../components/ChatRender";
 import handleStartConversation from "../../utils/handleStartConversation";
 import addNewMessage from "../../utils/addNewMessage";
 import handleUserLogin from "../../utils/handleUserLogin";
-import LoanOptions from "../../components/LoanOptions";
+import LoanOptions from "../../utils/LoanOptions";
+import endThreadMessage from "../../utils/endThreadMessage";
+import saveData from "../../utils/saveData";
+import { extractTextFromReactNode } from "../../utils/extractTextAndSide";
+import Header from "../../components/Header";
 
-interface IUser {
+export interface IUser {
   username: string;
   password: string;
 }
@@ -31,18 +36,33 @@ export default function Chatbot() {
     }
 
     if (message.toLowerCase().includes("loan")) {
-      const newMessage: IMessage = {
-        message: (
-          <LoanOptions setMessages={setMessages} />
-        ),
-        side: "left"
-      };
-      setMessages((prevMessages) => [...prevMessages, newMessage]);
+      LoanOptions({ setMessages });
+      return;
+    }
+
+    if (message.toLowerCase().includes("goodbye")) {
+      endThreadMessage({ messages, setMessages });
+      return;
     }
   };
 
+  useEffect(() => {
+    if (messages.length > 0) {
+      const lastMessage = messages[messages.length - 1];
+      const lastMessageText = extractTextFromReactNode(lastMessage.message);
+
+      if (lastMessageText.includes("Understood") && lastMessage.side === "left") {
+        saveData({ messages, setMessages });
+        setUser({ username: "", password: "" });
+        setThreadActivity(false);
+        return;
+      }
+    }
+  }, [messages]);
+
   return (
     <>
+      <Header />
       <ChatRender messages={messages} />
       <ChatInput onSendMessage={handleSendMessage} />
     </>
