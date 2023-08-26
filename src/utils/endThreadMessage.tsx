@@ -13,7 +13,7 @@ export default function endThreadMessage({ setMessages }: IEndThreadMessage) {
     message: (
       <p className="mx-3 mb-2 whitespace-normal break-words rounded-lg bg-gray-200 px-3 py-2 leading-8" id="endingMessage">
         Understood. Ending the conversation and storing it in the database. See all data in{" "}
-        <Link className="text-blue-500 underline"
+        <Link className="text-blue-600 underline"
           to={"/chat-data"}
           target="_blank"
           rel="noreferrer">Chat Data</Link>

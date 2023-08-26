@@ -11,9 +11,9 @@ export interface IAddNewMessage {
 export default function addNewMessage({ message, side, id, setMessages }: IAddNewMessage) {
   const getBackgroundClass = (side: string, length: number) => {
     if (length >= 45) {
-      return side === "left" ? "bg-gray-200 leading-8 rounded-bl-none" : "text-white bg-blue-500 leading-8 rounded-br-none";
+      return side === "left" ? "bg-gray-200 leading-8 rounded-bl-none" : "text-white bg-blue-600 leading-8 rounded-br-none";
     }
-    return side === "left" ? "bg-gray-200 inline-block rounded-bl-none" : "text-white bg-blue-500 inline-block rounded-br-none";
+    return side === "left" ? "bg-gray-200 inline-block rounded-bl-none" : "text-white bg-blue-600 inline-block rounded-br-none";
   };
 
   const backgroundClass = getBackgroundClass(side, message.length);

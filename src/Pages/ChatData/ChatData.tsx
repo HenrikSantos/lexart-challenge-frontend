@@ -46,7 +46,7 @@ export default function Chatbot() {
       <section className="px-5 py-2">
         <section className="py-3">
           <button
-            className="rounded bg-gray-200 px-5 py-2 text-xl text-blue-500 underline shadow-md hover:bg-gray-100"
+            className="rounded bg-gray-200 px-5 py-2 text-xl text-blue-600 underline shadow-md hover:bg-gray-100"
             onClick={() => generateHistoricData()}
             id="downloadHistoricBtn"
           >
@@ -58,7 +58,7 @@ export default function Chatbot() {
           <div className="flex flex-col items-baseline gap-8 px-2 text-sm ">
             {chats.map((chat, index) => (
               <button
-                className="text-blue-500"
+                className="text-blue-600"
                 key={index}
                 onClick={() => generateData({ ...chat })}
               >

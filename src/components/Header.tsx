@@ -5,7 +5,7 @@ export default function Header() {
   const location = useLocation();
 
   return (
-    <header className="flex w-full items-center justify-between bg-blue-500 px-5 py-3 text-white">
+    <header className="flex w-full items-center justify-between bg-blue-600 px-5 py-3 text-white">
       <div className="flex items-center gap-3">
         <Logo />
         <h1 className="font-bold">
