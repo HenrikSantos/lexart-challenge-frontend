@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import Header from "../../components/Header";
 
-interface MessageString {
+interface IMessageString {
   message: string;
   side: string;
 }
 
 export default function Chatbot() {
-  const [chats, setChats] = useState<MessageString[][]>([[]]);
+  const [chats, setChats] = useState<IMessageString[][]>([[]]);
 
   function download(data: string, fileName: string) {
     const blob = new Blob([data], { type: "text/csv" });
@@ -32,7 +32,7 @@ export default function Chatbot() {
     download(csvRows.join("\n"), "users data");
   }
 
-  function generateData(data: MessageString[], userId: number) {
+  function generateData(data: IMessageString[], userId: number) {
     const csvRows = [];
     const header = ["message", "side"];
     csvRows.push(header.join(","));
@@ -54,7 +54,7 @@ export default function Chatbot() {
 
   useEffect(() => {
     const chatsString = localStorage.getItem("chats");
-    const savedChats: MessageString[][] = chatsString
+    const savedChats: IMessageString[][] = chatsString
       ? JSON.parse(chatsString)
       : [];
     setChats(savedChats);
@@ -62,7 +62,7 @@ export default function Chatbot() {
   return (
     <>
       <Header />
-      <main className="h-screen max-w-lg px-5 py-16">
+      <section className="h-screen max-w-lg px-5 py-16">
         <section className="py-3">
           <button
             className="rounded bg-gray-200 px-5 py-2 text-xl text-blue-500 underline shadow-md hover:bg-gray-100"
@@ -90,7 +90,7 @@ export default function Chatbot() {
             ))}
           </div>
         </section>
-      </main>
+      </section>
     </>
   );
 }

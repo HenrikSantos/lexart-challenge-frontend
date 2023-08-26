@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { IMessage } from "../../components/ChatRender";
-
+import { extractTextFromReactNode } from "../../utils/extractTextAndSide";
 import ChatInput from "../../components/ChatInput";
 import ChatRender from "../../components/ChatRender";
 import handleStartConversation from "../../utils/handleStartConversation";
@@ -9,13 +9,8 @@ import handleUserLogin from "../../utils/handleUserLogin";
 import LoanOptions from "../../utils/LoanOptions";
 import endThreadMessage from "../../utils/endThreadMessage";
 import saveData from "../../utils/saveData";
-import { extractTextFromReactNode } from "../../utils/extractTextAndSide";
 import Header from "../../components/Header";
-
-export interface IUser {
-  username: string;
-  password: string;
-}
+import IUser from "./IUser";
 
 export default function Chatbot() {
   const [messages, setMessages] = useState<IMessage[]>([]);
