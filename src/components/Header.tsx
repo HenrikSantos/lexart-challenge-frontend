@@ -13,6 +13,9 @@ export default function Header() {
         </h1>
       </div>
       <div className="font-bold underline">
+        <Link id="aboutLink" to="/about">About</Link>
+      </div>
+      <div className="font-bold underline">
         {location.pathname.includes("chat-data") ? (
           <Link id="chatbotLink" to="/">Chatbot</Link>
         ) : (

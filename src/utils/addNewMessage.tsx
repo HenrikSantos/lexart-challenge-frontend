@@ -20,7 +20,7 @@ export default function addNewMessage({ message, side, id, setMessages }: IAddNe
 
   const newMessage: IMessage = {
     message: (
-      <div id={id} className={`mx-3 mb-2 whitespace-normal break-words rounded-xl py-2 ${side === "right" ? "text-right" : "text-left"}`}
+      <div id={id} className={`mx-3 mb-2 whitespace-normal break-words rounded-xl py-2 lg:text-lg ${side === "right" ? "text-right" : "text-left"}`}
       >
         {side === "left" && <Logo />}
         <p
