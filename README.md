@@ -45,3 +45,9 @@ If you have any questions or feedback, feel free to reach out to the project's a
 ## Project Images
 ![Page Chatbot](./public/Chatbot.png)
 ![Page Chat data](./public/Chatdata.png)
+
+## Tests
+![result test e2e](./public/teste2e.png)
+
+## Lighthouse
+![lighthouse test](./public/lighthouse.png)
