@@ -36,7 +36,7 @@ The project employs the following technologies:
   
 ## Getting More Details
 
-For a deeper dive into the project, you can explore the [GitHub repository](https://github.com/HenrikSantos/lexart-challenge-frontend). Additionally, you can experience the live version hosted on [Vercel](https://lexart-challenge-frontend-git-main-henriksantos.vercel.app/).
+You can experience the live version hosted on [Vercel](https://lexart-challenge-frontend-git-main-henriksantos.vercel.app/).
 
 ## Contact
 
@@ -48,6 +48,8 @@ If you have any questions or feedback, feel free to reach out to the project's a
 
 ## Tests
 ![result test e2e](./public/teste2e.png)
+
+https://github.com/HenrikSantos/lexart-challenge-frontend/assets/36730816/e24a3eee-0732-4012-a092-36c969f727b4
 
 ## Lighthouse
 ![lighthouse test](./public/lighthouse.png)
