@@ -41,7 +41,7 @@ npm run dev
 ```
 
 2. **Run tests**:
-Open a new terminal and execute `"npm test"` or `"npm run test:open"`. The `"npm run test:open"` command will open a browser; you'll then need to select "e2e", choose a browser to run the tests in, and finally select the e2e test.
+Open a new terminal and run `"npm test"` or `"npm run test:open"`. The command `"npm run test:open"` will open a window; you will need to select "e2e", choose a browser to run the tests on and finally select the "e2e.cy.ts" test.
 
 ## About
 
@@ -52,9 +52,9 @@ Open a new terminal and execute `"npm test"` or `"npm run test:open"`. The `"npm
 2. **User Authentication**: Users are required to provide a username and password.
 
 3. **Contextual Options**: Upon encountering the term "loan," contextual options are displayed. These options include:
-   - Application for a loan
-   - Loan conditions
-   - Help
+    - Application for a loan
+    - Loan conditions
+    - Help
 
 4. **Relevant Information Display**: The chatbot displays relevant information and reference links based on user selections.
 
@@ -63,8 +63,6 @@ Open a new terminal and execute `"npm test"` or `"npm run test:open"`. The `"npm
 6. **Export Historic Conversations**: Users can export historic conversations in CSV format, ordered by date, accessible on the "Chat Data" page.
 
 ### Technologies Used
-
-The project employs the following technologies:
 
 - [React](https://react.dev/): A JavaScript library for building user interfaces.
 - [TypeScript](https://www.typescriptlang.org/): A typed superset of JavaScript that compiles to plain JavaScript.
